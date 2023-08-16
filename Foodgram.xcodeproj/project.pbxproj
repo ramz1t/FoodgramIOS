@@ -7,19 +7,72 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C3A6CF42A8D8FD400D57D2F /* FoodgramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3A6CF32A8D8FD400D57D2F /* FoodgramApp.swift */; };
-		1C3A6CF62A8D8FD400D57D2F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3A6CF52A8D8FD400D57D2F /* ContentView.swift */; };
-		1C3A6CF82A8D8FD700D57D2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C3A6CF72A8D8FD700D57D2F /* Assets.xcassets */; };
-		1C3A6CFC2A8D8FD700D57D2F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C3A6CFB2A8D8FD700D57D2F /* Preview Assets.xcassets */; };
+		1CCA81EF2A8D949C00967678 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA81EE2A8D949C00967678 /* ContentView.swift */; };
+		1CCA81F12A8D94AD00967678 /* FoodgramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA81F02A8D94AD00967678 /* FoodgramApp.swift */; };
+		1CCA81F32A8D94BC00967678 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CCA81F22A8D94BC00967678 /* Preview Assets.xcassets */; };
+		1CCA81F52A8D94C700967678 /* AboutAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA81F42A8D94C700967678 /* AboutAppView.swift */; };
+		1CCA81F72A8D94CF00967678 /* AddEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA81F62A8D94CF00967678 /* AddEmailView.swift */; };
+		1CCA81F92A8D94D400967678 /* AddNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA81F82A8D94D400967678 /* AddNameView.swift */; };
+		1CCA81FB2A8D94DA00967678 /* AddRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA81FA2A8D94DA00967678 /* AddRecipeView.swift */; };
+		1CCA81FD2A8D94E100967678 /* AddRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA81FC2A8D94E100967678 /* AddRecipeViewModel.swift */; };
+		1CCA81FF2A8D94E600967678 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA81FE2A8D94E600967678 /* AppSettings.swift */; };
+		1CCA82012A8D94EF00967678 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA82002A8D94EF00967678 /* Color.swift */; };
+		1CCA82032A8D94F500967678 /* CompleteSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA82022A8D94F500967678 /* CompleteSignUpView.swift */; };
+		1CCA82052A8D94FA00967678 /* CreatePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA82042A8D94FA00967678 /* CreatePasswordView.swift */; };
+		1CCA82072A8D94FF00967678 /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA82062A8D94FF00967678 /* FavouritesView.swift */; };
+		1CCA82092A8D950700967678 /* FetcherState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA82082A8D950700967678 /* FetcherState.swift */; };
+		1CCA820B2A8D950C00967678 /* FGTextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA820A2A8D950C00967678 /* FGTextFieldModifier.swift */; };
+		1CCA820D2A8D951500967678 /* FoodgramLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA820C2A8D951500967678 /* FoodgramLogoView.swift */; };
+		1CCA820F2A8D951900967678 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA820E2A8D951900967678 /* LoginView.swift */; };
+		1CCA82112A8D951F00967678 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA82102A8D951F00967678 /* MainTabView.swift */; };
+		1CCA82132A8D952600967678 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA82122A8D952600967678 /* Recipe.swift */; };
+		1CCA82152A8D952B00967678 /* RecipeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA82142A8D952B00967678 /* RecipeDetailsView.swift */; };
+		1CCA82172A8D953000967678 /* RecipeListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA82162A8D953000967678 /* RecipeListItemView.swift */; };
+		1CCA82192A8D953800967678 /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA82182A8D953800967678 /* RecipesView.swift */; };
+		1CCA821B2A8D953E00967678 /* RecipesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA821A2A8D953E00967678 /* RecipesViewModel.swift */; };
+		1CCA821D2A8D954700967678 /* RecipeTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA821C2A8D954700967678 /* RecipeTagView.swift */; };
+		1CCA821F2A8D954D00967678 /* SelectTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA821E2A8D954D00967678 /* SelectTagView.swift */; };
+		1CCA82212A8D955200967678 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA82202A8D955200967678 /* SettingsView.swift */; };
+		1CCA82232A8D955900967678 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA82222A8D955900967678 /* SplashScreenView.swift */; };
+		1CCA82252A8D956800967678 /* TagsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA82242A8D956800967678 /* TagsViewModel.swift */; };
+		1CCA82272A8D956D00967678 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA82262A8D956D00967678 /* User.swift */; };
+		1CCA822F2A8D96A800967678 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CCA822E2A8D96A800967678 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1C3A6CF02A8D8FD400D57D2F /* Foodgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foodgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1C3A6CF32A8D8FD400D57D2F /* FoodgramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodgramApp.swift; sourceTree = "<group>"; };
-		1C3A6CF52A8D8FD400D57D2F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		1C3A6CF72A8D8FD700D57D2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1C3A6CF92A8D8FD700D57D2F /* Foodgram.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Foodgram.entitlements; sourceTree = "<group>"; };
-		1C3A6CFB2A8D8FD700D57D2F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1CCA81EA2A8D93B500967678 /* Foodgram.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Foodgram.entitlements; sourceTree = "<group>"; };
+		1CCA81ED2A8D944300967678 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1CCA81EE2A8D949C00967678 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1CCA81F02A8D94AD00967678 /* FoodgramApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodgramApp.swift; sourceTree = "<group>"; };
+		1CCA81F22A8D94BC00967678 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1CCA81F42A8D94C700967678 /* AboutAppView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutAppView.swift; sourceTree = "<group>"; };
+		1CCA81F62A8D94CF00967678 /* AddEmailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEmailView.swift; sourceTree = "<group>"; };
+		1CCA81F82A8D94D400967678 /* AddNameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNameView.swift; sourceTree = "<group>"; };
+		1CCA81FA2A8D94DA00967678 /* AddRecipeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRecipeView.swift; sourceTree = "<group>"; };
+		1CCA81FC2A8D94E100967678 /* AddRecipeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRecipeViewModel.swift; sourceTree = "<group>"; };
+		1CCA81FE2A8D94E600967678 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		1CCA82002A8D94EF00967678 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		1CCA82022A8D94F500967678 /* CompleteSignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteSignUpView.swift; sourceTree = "<group>"; };
+		1CCA82042A8D94FA00967678 /* CreatePasswordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePasswordView.swift; sourceTree = "<group>"; };
+		1CCA82062A8D94FF00967678 /* FavouritesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
+		1CCA82082A8D950700967678 /* FetcherState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetcherState.swift; sourceTree = "<group>"; };
+		1CCA820A2A8D950C00967678 /* FGTextFieldModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FGTextFieldModifier.swift; sourceTree = "<group>"; };
+		1CCA820C2A8D951500967678 /* FoodgramLogoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodgramLogoView.swift; sourceTree = "<group>"; };
+		1CCA820E2A8D951900967678 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		1CCA82102A8D951F00967678 /* MainTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		1CCA82122A8D952600967678 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		1CCA82142A8D952B00967678 /* RecipeDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDetailsView.swift; sourceTree = "<group>"; };
+		1CCA82162A8D953000967678 /* RecipeListItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeListItemView.swift; sourceTree = "<group>"; };
+		1CCA82182A8D953800967678 /* RecipesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
+		1CCA821A2A8D953E00967678 /* RecipesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesViewModel.swift; sourceTree = "<group>"; };
+		1CCA821C2A8D954700967678 /* RecipeTagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeTagView.swift; sourceTree = "<group>"; };
+		1CCA821E2A8D954D00967678 /* SelectTagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectTagView.swift; sourceTree = "<group>"; };
+		1CCA82202A8D955200967678 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		1CCA82222A8D955900967678 /* SplashScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		1CCA82242A8D956800967678 /* TagsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsViewModel.swift; sourceTree = "<group>"; };
+		1CCA82262A8D956D00967678 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1CCA822E2A8D96A800967678 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,7 +89,7 @@
 		1C3A6CE72A8D8FD400D57D2F = {
 			isa = PBXGroup;
 			children = (
-				1C3A6CF22A8D8FD400D57D2F /* Foodgram */,
+				1CCA81D82A8D938E00967678 /* Foodgram */,
 				1C3A6CF12A8D8FD400D57D2F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,24 +102,179 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1C3A6CF22A8D8FD400D57D2F /* Foodgram */ = {
+		1CCA81D82A8D938E00967678 /* Foodgram */ = {
 			isa = PBXGroup;
 			children = (
-				1C3A6CF32A8D8FD400D57D2F /* FoodgramApp.swift */,
-				1C3A6CF52A8D8FD400D57D2F /* ContentView.swift */,
-				1C3A6CF72A8D8FD700D57D2F /* Assets.xcassets */,
-				1C3A6CF92A8D8FD700D57D2F /* Foodgram.entitlements */,
-				1C3A6CFA2A8D8FD700D57D2F /* Preview Content */,
+				1CCA822E2A8D96A800967678 /* Assets.xcassets */,
+				1CCA81E32A8D938E00967678 /* App */,
+				1CCA81E62A8D938E00967678 /* Components */,
+				1CCA81DB2A8D938E00967678 /* Core */,
+				1CCA81E52A8D938E00967678 /* Extensions */,
+				1CCA81EA2A8D93B500967678 /* Foodgram.entitlements */,
+				1CCA81ED2A8D944300967678 /* Info.plist */,
+				1CCA81E72A8D938E00967678 /* Model */,
+				1CCA81DA2A8D938E00967678 /* Modifiers */,
+				1CCA81E42A8D938E00967678 /* Preview Content */,
+				1CCA81E92A8D938E00967678 /* Services */,
+				1CCA81D92A8D938E00967678 /* ViewModels */,
+				1CCA81E82A8D938E00967678 /* Views */,
 			);
 			path = Foodgram;
 			sourceTree = "<group>";
 		};
-		1C3A6CFA2A8D8FD700D57D2F /* Preview Content */ = {
+		1CCA81D92A8D938E00967678 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				1C3A6CFB2A8D8FD700D57D2F /* Preview Assets.xcassets */,
+				1CCA82242A8D956800967678 /* TagsViewModel.swift */,
+				1CCA821A2A8D953E00967678 /* RecipesViewModel.swift */,
+				1CCA82082A8D950700967678 /* FetcherState.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		1CCA81DA2A8D938E00967678 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				1CCA820A2A8D950C00967678 /* FGTextFieldModifier.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		1CCA81DB2A8D938E00967678 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				1CCA81DC2A8D938E00967678 /* Settings */,
+				1CCA81DD2A8D938E00967678 /* AddRecipe */,
+				1CCA81DE2A8D938E00967678 /* TabBar */,
+				1CCA81DF2A8D938E00967678 /* Favourites */,
+				1CCA81E02A8D938E00967678 /* MainPage */,
+				1CCA81E12A8D938E00967678 /* Root */,
+				1CCA81E22A8D938E00967678 /* Authentication */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		1CCA81DC2A8D938E00967678 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1CCA82202A8D955200967678 /* SettingsView.swift */,
+				1CCA81F42A8D94C700967678 /* AboutAppView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		1CCA81DD2A8D938E00967678 /* AddRecipe */ = {
+			isa = PBXGroup;
+			children = (
+				1CCA81FC2A8D94E100967678 /* AddRecipeViewModel.swift */,
+				1CCA81FA2A8D94DA00967678 /* AddRecipeView.swift */,
+			);
+			path = AddRecipe;
+			sourceTree = "<group>";
+		};
+		1CCA81DE2A8D938E00967678 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				1CCA82102A8D951F00967678 /* MainTabView.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		1CCA81DF2A8D938E00967678 /* Favourites */ = {
+			isa = PBXGroup;
+			children = (
+				1CCA82062A8D94FF00967678 /* FavouritesView.swift */,
+			);
+			path = Favourites;
+			sourceTree = "<group>";
+		};
+		1CCA81E02A8D938E00967678 /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				1CCA821E2A8D954D00967678 /* SelectTagView.swift */,
+				1CCA82182A8D953800967678 /* RecipesView.swift */,
+			);
+			path = MainPage;
+			sourceTree = "<group>";
+		};
+		1CCA81E12A8D938E00967678 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		1CCA81E22A8D938E00967678 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				1CCA820E2A8D951900967678 /* LoginView.swift */,
+				1CCA82042A8D94FA00967678 /* CreatePasswordView.swift */,
+				1CCA82022A8D94F500967678 /* CompleteSignUpView.swift */,
+				1CCA81F82A8D94D400967678 /* AddNameView.swift */,
+				1CCA81F62A8D94CF00967678 /* AddEmailView.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		1CCA81E32A8D938E00967678 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				1CCA81FE2A8D94E600967678 /* AppSettings.swift */,
+				1CCA81F02A8D94AD00967678 /* FoodgramApp.swift */,
+				1CCA81EE2A8D949C00967678 /* ContentView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		1CCA81E42A8D938E00967678 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1CCA81F22A8D94BC00967678 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1CCA81E52A8D938E00967678 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1CCA82002A8D94EF00967678 /* Color.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1CCA81E62A8D938E00967678 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				1CCA82222A8D955900967678 /* SplashScreenView.swift */,
+				1CCA821C2A8D954700967678 /* RecipeTagView.swift */,
+				1CCA82162A8D953000967678 /* RecipeListItemView.swift */,
+				1CCA820C2A8D951500967678 /* FoodgramLogoView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		1CCA81E72A8D938E00967678 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1CCA82262A8D956D00967678 /* User.swift */,
+				1CCA82122A8D952600967678 /* Recipe.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1CCA81E82A8D938E00967678 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1CCA82142A8D952B00967678 /* RecipeDetailsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1CCA81E92A8D938E00967678 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -101,6 +309,7 @@
 				TargetAttributes = {
 					1C3A6CEF2A8D8FD400D57D2F = {
 						CreatedOnToolsVersion = 15.0;
+						LastSwiftMigration = 1500;
 					};
 				};
 			};
@@ -127,8 +336,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C3A6CFC2A8D8FD700D57D2F /* Preview Assets.xcassets in Resources */,
-				1C3A6CF82A8D8FD700D57D2F /* Assets.xcassets in Resources */,
+				1CCA822F2A8D96A800967678 /* Assets.xcassets in Resources */,
+				1CCA81F32A8D94BC00967678 /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,8 +348,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C3A6CF62A8D8FD400D57D2F /* ContentView.swift in Sources */,
-				1C3A6CF42A8D8FD400D57D2F /* FoodgramApp.swift in Sources */,
+				1CCA82092A8D950700967678 /* FetcherState.swift in Sources */,
+				1CCA82232A8D955900967678 /* SplashScreenView.swift in Sources */,
+				1CCA82172A8D953000967678 /* RecipeListItemView.swift in Sources */,
+				1CCA81F12A8D94AD00967678 /* FoodgramApp.swift in Sources */,
+				1CCA821D2A8D954700967678 /* RecipeTagView.swift in Sources */,
+				1CCA81FD2A8D94E100967678 /* AddRecipeViewModel.swift in Sources */,
+				1CCA81F72A8D94CF00967678 /* AddEmailView.swift in Sources */,
+				1CCA81FB2A8D94DA00967678 /* AddRecipeView.swift in Sources */,
+				1CCA81F92A8D94D400967678 /* AddNameView.swift in Sources */,
+				1CCA82032A8D94F500967678 /* CompleteSignUpView.swift in Sources */,
+				1CCA820D2A8D951500967678 /* FoodgramLogoView.swift in Sources */,
+				1CCA81EF2A8D949C00967678 /* ContentView.swift in Sources */,
+				1CCA82112A8D951F00967678 /* MainTabView.swift in Sources */,
+				1CCA82052A8D94FA00967678 /* CreatePasswordView.swift in Sources */,
+				1CCA81FF2A8D94E600967678 /* AppSettings.swift in Sources */,
+				1CCA82192A8D953800967678 /* RecipesView.swift in Sources */,
+				1CCA82212A8D955200967678 /* SettingsView.swift in Sources */,
+				1CCA821B2A8D953E00967678 /* RecipesViewModel.swift in Sources */,
+				1CCA81F52A8D94C700967678 /* AboutAppView.swift in Sources */,
+				1CCA82072A8D94FF00967678 /* FavouritesView.swift in Sources */,
+				1CCA82272A8D956D00967678 /* User.swift in Sources */,
+				1CCA82012A8D94EF00967678 /* Color.swift in Sources */,
+				1CCA82132A8D952600967678 /* Recipe.swift in Sources */,
+				1CCA820F2A8D951900967678 /* LoginView.swift in Sources */,
+				1CCA821F2A8D954D00967678 /* SelectTagView.swift in Sources */,
+				1CCA82152A8D952B00967678 /* RecipeDetailsView.swift in Sources */,
+				1CCA82252A8D956800967678 /* TagsViewModel.swift in Sources */,
+				1CCA820B2A8D950C00967678 /* FGTextFieldModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +501,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Foodgram/Foodgram.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -274,6 +510,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Foodgram/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -294,6 +531,7 @@
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -304,6 +542,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Foodgram/Foodgram.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -312,6 +551,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Foodgram/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
