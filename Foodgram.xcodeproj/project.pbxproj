@@ -125,9 +125,9 @@
 		1CCA81D92A8D938E00967678 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				1CCA82242A8D956800967678 /* TagsViewModel.swift */,
-				1CCA821A2A8D953E00967678 /* RecipesViewModel.swift */,
 				1CCA82082A8D950700967678 /* FetcherState.swift */,
+				1CCA821A2A8D953E00967678 /* RecipesViewModel.swift */,
+				1CCA82242A8D956800967678 /* TagsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";

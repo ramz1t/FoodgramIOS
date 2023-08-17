@@ -10,7 +10,7 @@ import SwiftUI
 struct FavouritesView: View {
     
     @State private var searchText = ""
-    @StateObject var viewModel = RecipesViewModel()
+    var viewModel = RecipesViewModel()
     @State private var selectedOption = 0
     
     private func getFilteredResults() -> [Recipe] {

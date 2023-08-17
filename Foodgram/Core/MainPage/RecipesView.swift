@@ -12,7 +12,7 @@ struct RecipesView: View {
     @State private var addRecipeViewIsOpen = false
     @State private var categoryPickerViewIsOpen = false
     @State private var cartViewIsOpen = false
-    @StateObject var viewModel = RecipesViewModel()
+    var viewModel = RecipesViewModel()
     
     var body: some View {
         NavigationStack {
@@ -58,7 +58,7 @@ struct RecipesView: View {
                 AddRecipeView()
             }
             .sheet(isPresented: $categoryPickerViewIsOpen) {
-                SelectTagView(selectedTags: $viewModel.selectedTags)
+                SelectTagView(recipeViewModel: viewModel)
                     .presentationDetents([.large, .medium])
                     .presentationDragIndicator(.hidden)
             }

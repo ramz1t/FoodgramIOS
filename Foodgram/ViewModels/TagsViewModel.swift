@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import Observation
 
-class TagsViewModel: ObservableObject {
-    @Published var tags: [Tag] = []
-    @Published var state: FetcherState = .good
+@Observable class TagsViewModel {
+    var tags: [Tag] = []
+    var state: FetcherState = .good
     
     func fetch() {
         guard tags.count == 0 else {
@@ -43,9 +44,6 @@ class TagsViewModel: ObservableObject {
     }
     
     func getFilteredTags(query: String) -> [Tag] {
-        guard state != .loading else {
-            return []
-        }
         guard query != "" else {
             return tags
         }

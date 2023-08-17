@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Observation
 
 struct RecipeResponseWrapper: Codable {
     let count: Int
@@ -14,10 +15,10 @@ struct RecipeResponseWrapper: Codable {
     let results: [Recipe]
 }
 
-class RecipesViewModel: ObservableObject {
-    @Published var recipes: [Recipe] = []
-    @Published var state: FetcherState = .good
-    @Published var selectedTags: [Tag] = []
+@Observable class RecipesViewModel {
+    var recipes: [Recipe] = []
+    var state: FetcherState = .good
+    var selectedTags: [Tag] = []
     
     
     func fetch() {

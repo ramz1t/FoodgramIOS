@@ -9,9 +9,9 @@ import SwiftUI
 
 struct SelectTagView: View {
     @Environment(\.dismiss) var dismiss
-    @StateObject var viewModel = TagsViewModel()
+    var viewModel = TagsViewModel()
     @State var searchText = ""
-    @Binding var selectedTags: [Tag]
+    var recipeViewModel: RecipesViewModel
     
     var body: some View {
         NavigationStack {
@@ -21,16 +21,16 @@ struct SelectTagView: View {
             List {
                 ForEach(viewModel.getFilteredTags(query: searchText)) { tag in
                     Button {
-                        guard !selectedTags.contains(tag) else {
-                            selectedTags = selectedTags.filter { $0.slug != tag.slug }
+                        guard !recipeViewModel.selectedTags.contains(tag) else {
+                            recipeViewModel.selectedTags = recipeViewModel.selectedTags.filter { $0.slug != tag.slug }
                             return
                         }
-                        selectedTags.append(tag)
+                        recipeViewModel.selectedTags.append(tag)
                     } label: {
                         Label(
                             title: { Text(tag.name) },
                             icon: {
-                                if selectedTags.contains(tag) {
+                                if recipeViewModel.selectedTags.contains(tag) {
                                     Image(systemName: "checkmark")
                                         .foregroundColor(Color(hex: tag.color))
                                 } else {
@@ -66,7 +66,7 @@ struct SelectTagView: View {
 
 struct SelectTagView_Previews: PreviewProvider {
     static var previews: some View {
-        let selectedTags: [Tag] = Tag.MOCK
-        SelectTagView(selectedTags: .constant(selectedTags))
+        let viewModel = RecipesViewModel()
+        SelectTagView(recipeViewModel: viewModel)
     }
 }
