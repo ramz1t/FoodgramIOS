@@ -9,20 +9,17 @@ import SwiftUI
 
 struct SelectTagView: View {
     @Environment(\.dismiss) var dismiss
-    var viewModel = TagsViewModel()
+    var tagsViewModel = TagsViewModel()
     @State var searchText = ""
     var recipeViewModel: RecipesViewModel
     
     var body: some View {
         NavigationStack {
-            if (viewModel.state == .loading) {
-                Text("Loading...")
-            }
             List {
-                ForEach(viewModel.getFilteredTags(query: searchText)) { tag in
+                ForEach(tagsViewModel.getFilteredTags(query: searchText)) { tag in
                     Button {
                         guard !recipeViewModel.selectedTags.contains(tag) else {
-                            recipeViewModel.selectedTags = recipeViewModel.selectedTags.filter { $0.slug != tag.slug }
+                            recipeViewModel.selectedTags = recipeViewModel.selectedTags.filter { $0 != tag }
                             return
                         }
                         recipeViewModel.selectedTags.append(tag)
@@ -34,12 +31,13 @@ struct SelectTagView: View {
                                     Image(systemName: "checkmark")
                                         .foregroundColor(Color(hex: tag.color))
                                 } else {
-                                    Image(systemName: "circle")
-                                        .foregroundColor(.white)
+                                    Image(systemName: "checkmark")
+                                        .opacity(0)
+                                        
                                 }
                             }
                         )
-                        .foregroundColor(.black)
+                        .foregroundColor(.primary)
                     }
                 }
                 
@@ -59,7 +57,7 @@ struct SelectTagView: View {
             
         }
         .onAppear {
-            viewModel.fetch()
+            tagsViewModel.fetch()
         }
     }
 }

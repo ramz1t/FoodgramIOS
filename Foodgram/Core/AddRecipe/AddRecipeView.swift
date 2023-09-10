@@ -11,52 +11,60 @@ import PhotosUI
 struct AddRecipeView: View {
     
     @State private var name = ""
-    @State private var time = 5
+    @State private var selectedHours = 0
+    @State private var selectedMinutes = 5
     @State private var description = ""
     @State private var imagePickerPresented = false
     @StateObject var viewModel = AddRecipeViewModel()
+    var tagsViewModel = TagsViewModel()
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
         
-        VStack {
-            HStack {
-                Button {
-                    dismiss()
-                } label: {
-                    Text("Cancel")
+        NavigationStack {
+            Form {
+                Section("Title") {
+                    TextField("", text: $name)
                 }
-                Spacer()
-                Text("New recipe")
-                    .fontWeight(.semibold)
-                Spacer()
-                Button {
-                    print("upload")
-                } label: {
-                    Text("Create")
-                        .fontWeight(.semibold)
+                
+                Section {
+                    TextField("", text: $description, axis: .vertical)
+                } header: {
+                    Text("Description")
+                } footer: {
+                    Text("Provide all information about cooking process. The more you tell - the easier it will be for others to cook your dish")
                 }
-            }
-            .padding(.bottom, 10)
-            ScrollView {
-                VStack(alignment: .leading) {
-                    Text("Name:")
-                    TextField("Name", text: $name)
-                        .modifier(FGTextFieldModifier())
-                    
-                    Text("Description:")
-                    TextField("Description", text: $description, axis: .vertical)
-                        .modifier(FGTextFieldModifier())
-                    
-                    Stepper("Cooking time: \(time) min.", value: $time, in: 1...1000)
-                    
+                
+                Section("Cooking time") {
+                    HStack {
+                        Picker("Hours", selection: $selectedHours) {
+                            ForEach(0..<24, id: \.self) { hour in
+                                Text("\(hour) h")
+                            }
+                        }
+                        .pickerStyle(.wheel)
+                        
+                        
+                        Picker("Minutes", selection: $selectedMinutes) {
+                            if (selectedHours != 0) {
+                                Text("0 min")
+                            }
+                            ForEach(1..<60, id: \.self) { minute in
+                                Text("\(minute) min")
+                            }
+                        }
+                        .pickerStyle(.wheel)
+                        
+                    }
+                }
+                Section("Image") {
                     Button {
                         imagePickerPresented.toggle()
                     } label: {
                         if viewModel.selectedImage != nil {
-                            Text("Change image")
+                            Text("Change")
                         } else {
-                            Text("Select image")
+                            Text("Select")
                         }
                     }
                     
@@ -65,14 +73,52 @@ struct AddRecipeView: View {
                             .resizable()
                             .scaledToFit()
                     }
+                }
+                
+                Section("Tags") {
+                    ForEach(tagsViewModel.tags) { tag in
+                        Label(tag.name, systemImage: "pen")
+                            .foregroundStyle(Color.init(hex: tag.color))
+                    }
+                }
+                
+                Section("Ingridients") {
+                    NavigationLink {
+                        Text("Add ingridient view")
+                    } label: {
+                        Text("Add")
+                            .foregroundStyle(.accent)
+                    }
                     
-                    Spacer()
+                    Text("Carrots - 100g.")
+                    Text("Potatos - 150g.")
+                }
+                
+            }
+            .photosPicker(isPresented: $imagePickerPresented, selection: $viewModel.selectedImage)
+            .toolbar {
+                ToolbarItemGroup(placement: .cancellationAction) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Text("Cancel")
+                    }
+                }
+                ToolbarItemGroup(placement: .primaryAction) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Text("Create")
+                            .fontWeight(.bold)
+                    }
                 }
             }
-            
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("Add recipe")
+            .onAppear {
+                tagsViewModel.fetch()
+            }
         }
-        .padding([.horizontal, .top])
-        .photosPicker(isPresented: $imagePickerPresented, selection: $viewModel.selectedImage)
     }
 }
 

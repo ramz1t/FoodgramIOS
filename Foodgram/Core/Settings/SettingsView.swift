@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @State private var selectedTheme: String = "light"
     var body: some View {
         NavigationView {
             List {
@@ -24,11 +25,21 @@ struct SettingsView: View {
                             .foregroundColor(.accentColor)
                     }
                 }
-                Section("Other") {
+                Section("App") {
+                    Picker(selection: $selectedTheme) {
+                        Label("Light", systemImage: "sun.max")
+                            .tag("light")
+                        Label("Dark", systemImage: "moon")
+                            .tag("dark")
+                        Label("Auto", systemImage: "a.circle")
+                            .tag("auto")
+                    } label: {
+                        Label("Select theme", systemImage: "paintpalette")
+                    }
                     NavigationLink {
                         AboutAppView()
                     } label: {
-                        Label("About app", systemImage: "info.circle")
+                        Label("About", systemImage: "info.circle")
                     }
                 }
             }

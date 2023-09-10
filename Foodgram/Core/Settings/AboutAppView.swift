@@ -32,3 +32,4 @@ struct AboutAppView_Previews: PreviewProvider {
         AboutAppView()
     }
 }
+

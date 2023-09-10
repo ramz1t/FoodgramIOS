@@ -10,6 +10,7 @@ import SwiftUI
 struct RecipeDetailsView: View {
     @State var recipe: Recipe
     @State var flag = Tag.MOCK.first!
+    @State private var deleteAlertIsShown = false
     
     var body: some View {
         ScrollView {
@@ -56,7 +57,8 @@ struct RecipeDetailsView: View {
                     recipe.isFavorited.toggle()
                 } label: {
                     Label("Add to favourites", systemImage: recipe.isFavorited ? "star.fill" : "star")
-                        .foregroundColor(.yellow)
+                        .symbolRenderingMode(.multicolor)
+                        .foregroundStyle(.yellow)
                 }
                 moreActionsMenu
             }
@@ -133,12 +135,20 @@ struct RecipeDetailsView: View {
                 }
                 Divider()
                 Button(role: .destructive) {
-                    RecipesViewModel().deleteRecipe(recipeId: recipe.id)
+                    deleteAlertIsShown = true
                 } label: {
                     Label("Delete", systemImage: "trash")
                 }
             } label: {
                 Label("More", systemImage: "ellipsis.circle")
+            }
+            .alert("Delete repipe", isPresented: $deleteAlertIsShown) {
+                Button("Delete", role: .destructive) {
+                    RecipesViewModel().deleteRecipe(recipeId: recipe.id)
+                }
+                Button("Cancel", role: .cancel) {}
+            } message: {
+                Text("This action is not reversible")
             }
         }
     }

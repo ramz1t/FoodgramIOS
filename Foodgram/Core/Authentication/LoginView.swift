@@ -15,70 +15,67 @@ struct LoginView: View {
     
     var body: some View {
         NavigationStack {
-            VStack(spacing: 25) {
-                Spacer()
-                
-                FoodgramLogoView()
-                
-                VStack {
-                    TextField("Enter your email", text: $email)
-                        .autocapitalization(.none)
-                        .modifier(FGTextFieldModifier())
-                        .padding(.horizontal)
-                    SecureField("Enter your password", text: $password)
-                        .modifier(FGTextFieldModifier())
-                        .padding(.horizontal)
-                }
-                
-                Button {
-                    print("login")
-                } label: {
-                    Text("Log In")
-                        .foregroundColor(.white)
-                        .fontWeight(.bold)
-                        .font(.subheadline)
-                        .frame(width: 360, height: 44)
-                        .background(Color.accentColor)
-                        .cornerRadius(10)
-                }
-                
-                HStack {
-                    Rectangle()
-                        .frame(width: UIScreen.main.bounds.width / 2 - 40, height: 0.5)
-                    Text("OR")
-                        .font(.footnote)
-                    Rectangle()
-                        .frame(width: UIScreen.main.bounds.width / 2 - 40, height: 0.5)
-                }
-                .foregroundColor(.gray)
-                
-                SignInWithAppleButton(.signIn) { request in
-                    request.requestedScopes = [.fullName, .email]
-                } onCompletion: { result in
-                    switch result {
-                    case .success(let authResults):
-                        print(authResults)
-                    case .failure(let error):
-                        print(error)
+            VStack {
+                VStack(spacing: 25) {
+                    Spacer()
+                    
+                    FoodgramLogoView()
+                    
+                    VStack {
+                        TextField("Enter your email", text: $email)
+                            .modifier(FGTextFieldModifier())
+                            .autocapitalization(.none)
+                            .keyboardType(.emailAddress)
+                        SecureField("Enter your password", text: $password)
+                            .modifier(FGTextFieldModifier())
                     }
+                    
+                    Button {
+                        print("login")
+                    } label: {
+                        Text("Log In")
+                            .modifier(FGTextButtonModifier())
+                    }
+                    
+                    HStack {
+                        Rectangle()
+                            .frame(maxWidth: .infinity, maxHeight: 0.5)
+                        Text("OR")
+                            .font(.footnote)
+                        Rectangle()
+                            .frame(maxWidth: .infinity, maxHeight: 0.5)
+                    }
+                    .foregroundColor(.gray)
+                    
+                    SignInWithAppleButton(.signIn) { request in
+                        request.requestedScopes = [.fullName, .email]
+                    } onCompletion: { result in
+                        switch result {
+                        case .success(let authResults):
+                            print(authResults)
+                        case .failure(let error):
+                            print(error)
+                        }
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: 44)
+                    .signInWithAppleButtonStyle(.whiteOutline)
+                    
+                    Spacer()
                 }
-                .frame(width: 280, height: 45)
-                .signInWithAppleButtonStyle(.whiteOutline)
-                
-                
-                Spacer()
-                
-                Divider()
-                NavigationLink {
-                    AddEmailView()
-                } label: {
-                    Text("Don't have an account? ")
-                        .font(.caption)
-                    + Text("Sign up")
-                        .font(.caption)
-                        .fontWeight(.bold)
+                .padding(.horizontal)
+                VStack(spacing: 25) {
+                    Divider()
+                    NavigationLink {
+                        AddEmailView()
+                    } label: {
+                        Text("Don't have an account? ")
+                            .font(.caption)
+                        + Text("Sign up")
+                            .font(.caption)
+                            .fontWeight(.bold)
+                    }
+                    Divider()
                 }
-                Divider()
             }
         }
     }

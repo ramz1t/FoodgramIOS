@@ -95,23 +95,22 @@ struct RecipeListItemPreview: View {
             }
         }
         .padding()
-        .frame(width: .infinity)
     }
 }
 
 struct RecipeListItemContextMenu: View {
-    let recipe: Recipe
+    @State var recipe: Recipe
     
     var body: some View {
         Button {
-            
+            recipe.isInShoppingCart.toggle()
         } label: {
             Label("Add to cart", systemImage: "cart")
         }
         Button {
-            
+            recipe.isFavorited.toggle()
         } label: {
-            Label("Add to favourites", systemImage: "star")
+            Label(recipe.isFavorited ? "Remove from favourites" : "Add to favourites", systemImage: recipe.isFavorited ? "star.fill" : "star")
         }
         NavigationLink {
             Text(recipe.author.firstName)

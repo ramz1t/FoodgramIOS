@@ -11,33 +11,26 @@ struct CreatePasswordView: View {
     @State private var password = ""
     
     var body: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: 25) {
             Text("Create password")
                 .font(.title2)
                 .fontWeight(.bold)
-                .padding(.top)
             Text("Yout password must be at least 6 characters in length")
                 .font(.footnote)
                 .foregroundColor(.gray)
                 .multilineTextAlignment(.center)
-                .padding(.horizontal, 24)
             SecureField("Password", text: $password)
                 .modifier(FGTextFieldModifier())
                 .autocapitalization(.none)
-                .padding()
             NavigationLink {
                 CompleteSignUpView()
             } label: {
                 Text("Sign Up")
-                    .foregroundColor(.white)
-                    .fontWeight(.bold)
-                    .font(.subheadline)
-                    .frame(width: 360, height: 44)
-                    .background(Color.accentColor)
-                    .cornerRadius(10)
+                    .modifier(FGTextButtonModifier())
             }
             Spacer()
         }
+        .padding([.horizontal, .top])
     }
 }
 

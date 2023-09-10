@@ -12,33 +12,26 @@ struct AddNameView: View {
     @State private var name = ""
     
     var body: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: 25) {
             Text("Add your name")
                 .font(.title2)
                 .fontWeight(.bold)
-                .padding(.top)
             Text("This name will be written in your recipes info")
                 .font(.footnote)
                 .foregroundColor(.gray)
                 .multilineTextAlignment(.center)
-                .padding(.horizontal, 24)
             TextField("Name", text: $name)
                 .modifier(FGTextFieldModifier())
                 .autocapitalization(.none)
-                .padding()
             NavigationLink {
                 CreatePasswordView()
             } label: {
                 Text("Next")
-                    .foregroundColor(.white)
-                    .fontWeight(.bold)
-                    .font(.subheadline)
-                    .frame(width: 360, height: 44)
-                    .background(Color.accentColor)
-                    .cornerRadius(10)
+                    .modifier(FGTextButtonModifier())
             }
             Spacer()
         }
+        .padding([.horizontal, .top])
     }
 }
 

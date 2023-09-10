@@ -19,20 +19,15 @@ struct CompleteSignUpView: View {
             Text("Click below to complete registration and start creating recipes")
                 .multilineTextAlignment(.center)
                 .font(.footnote)
-                .padding(.horizontal, 24)
             Button {
                 print("complete")
             } label: {
                 Text("Complete Sign Up")
-                    .foregroundColor(.white)
-                    .fontWeight(.bold)
-                    .font(.subheadline)
-                    .frame(width: 360, height: 44)
-                    .background(Color.accentColor)
-                    .cornerRadius(10)
+                    .modifier(FGTextButtonModifier())
             }
 
         }
+        .padding(.horizontal)
     }
 }
 

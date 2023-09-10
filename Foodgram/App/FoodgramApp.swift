@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TipKit
 
 @main
 struct FoodgramApp: App {
@@ -13,5 +14,9 @@ struct FoodgramApp: App {
         WindowGroup {
             SplashScreenView()
         }
+    }
+    
+    init() {
+        
     }
 }

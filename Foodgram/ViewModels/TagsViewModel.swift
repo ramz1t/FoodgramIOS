@@ -18,6 +18,7 @@ import Observation
         }
         
         guard let url = URL(string: "\(AppSettings.apiURL)/api/tags") else {
+            state = .error("Failed to fetch tags")
             return
         }
         

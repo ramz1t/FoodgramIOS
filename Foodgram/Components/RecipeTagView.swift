@@ -19,6 +19,7 @@ struct RecipeTagView: View {
             .cornerRadius(.infinity)
             .fontWeight(.bold)
             .font(.footnote)
+            .shadow(color: Color.init(hex: tag.color), radius: 5)
         
     }
 }
