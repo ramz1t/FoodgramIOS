@@ -13,16 +13,20 @@ struct SelectTagView: View {
     @State var searchText = ""
     var recipeViewModel: RecipesViewModel
     
+    func toggleSelection(tag: Tag) -> Void {
+        if recipeViewModel.selectedTags.contains(tag) {
+            recipeViewModel.selectedTags = recipeViewModel.selectedTags.filter { $0 != tag }
+        } else {
+            recipeViewModel.selectedTags.append(tag)
+        }
+    }
+    
     var body: some View {
         NavigationStack {
             List {
                 ForEach(tagsViewModel.getFilteredTags(query: searchText)) { tag in
                     Button {
-                        guard !recipeViewModel.selectedTags.contains(tag) else {
-                            recipeViewModel.selectedTags = recipeViewModel.selectedTags.filter { $0 != tag }
-                            return
-                        }
-                        recipeViewModel.selectedTags.append(tag)
+                        toggleSelection(tag: tag)
                     } label: {
                         Label(
                             title: { Text(tag.name) },

@@ -9,6 +9,11 @@ import SwiftUI
 
 struct FavouritesView: View {
     
+    init() {
+        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.accentColor)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: UIControl.State.selected)
+    }
+    
     @State private var searchText = ""
     var viewModel = RecipesViewModel()
     @State private var selectedOption = 0
