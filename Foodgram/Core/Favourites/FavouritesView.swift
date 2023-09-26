@@ -42,9 +42,14 @@ struct FavouritesView: View {
                         RecipeListItemView(recipe: recipe)
                     }
                 }
-                .searchable(text: $searchText, prompt: "Search")
             }
+            .searchable(text: $searchText,
+                        placement: .navigationBarDrawer(displayMode: .always),
+                        prompt: "Search")
             .navigationTitle("Favourites")
+            .onAppear {
+                viewModel.fetch()
+            }
         }
         
     }

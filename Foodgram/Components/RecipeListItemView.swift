@@ -17,7 +17,7 @@ struct RecipeListItemView: View {
             RecipeDetailsView(recipe: recipe)
         } label: {
             HStack {
-                AsyncImage(url: URL(string: "\(AppSettings.apiURL)\(URL(string: recipe.image)?.path ?? "")")) { phase in
+                AsyncImage(apiUrl: recipe.image) { phase in
                     switch phase {
                     case .empty:
                         Rectangle()
@@ -65,7 +65,6 @@ struct RecipeListItemView: View {
             }
             .padding(.horizontal)
             .padding(.vertical, 5)
-            Divider()
         }
         .foregroundColor(.primary)
         .contextMenu {
@@ -73,7 +72,6 @@ struct RecipeListItemView: View {
         } preview: {
             RecipeListItemPreview(recipe: recipe)
         }
-        
     }
 }
 

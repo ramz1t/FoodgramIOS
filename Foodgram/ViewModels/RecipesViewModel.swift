@@ -7,6 +7,7 @@
 
 import Foundation
 import Observation
+import SwiftUI
 
 struct RecipeResponseWrapper: Codable {
     let count: Int
@@ -16,37 +17,31 @@ struct RecipeResponseWrapper: Codable {
 }
 
 @Observable class RecipesViewModel {
-    var recipes: [Recipe] = []
+    var recipes = [Recipe]()
     var state: FetcherState = .good
-    var selectedTags: [Tag] = []
-    
+    var selectedTags = [Tag]()
+    var queryString = ""
     
     func fetch() {
-        guard let url = URL(string: "\(AppSettings.apiURL)/api/recipes?limit=999&\(arrayToQueryString(selectedTags ))") else {
-            return
-        }
-        
         state = .loading
-        
-        let task = URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
-            guard let data = data, error == nil else {
-                print(error as Any)
-                return
-            }
-
-            do {
-                let responseWrapper = try JSONDecoder().decode(RecipeResponseWrapper.self, from: data)
-                let recipes = responseWrapper.results
-                DispatchQueue.main.async {
-                    self?.recipes = recipes
-                    self?.state = .good
+        DataLoader.request(.recipes(matching: queryString, tags: selectedTags)) { result in
+            switch result {
+            case .success(let data):
+                do {
+                    let responseWrapper = try JSONDecoder().decode(RecipeResponseWrapper.self, from: data)
+                    let recipes = responseWrapper.results
+                    
+                    DispatchQueue.main.async {
+                        self.recipes = recipes
+                        self.state = .good
+                    }
+                } catch {
+                    self.state = .error("error")
                 }
-            } catch {
-                print(error)
+            case .failure:
+                self.state = .error("error")
             }
         }
-        
-        task.resume()
     }
     
     func deleteRecipe(recipeId: Int) {
@@ -55,13 +50,13 @@ struct RecipeResponseWrapper: Codable {
     
     func arrayToQueryString(_ array: [Tag]) -> String {
         var components: [String] = []
-
+        
         for tag in array {
             if let encodedName = tag.name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
                 components.append("tags=\(encodedName.lowercased())")
             }
         }
-
+        
         return components.joined(separator: "&")
     }
 }

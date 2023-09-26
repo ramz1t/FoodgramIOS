@@ -17,31 +17,23 @@ import Observation
             return
         }
         
-        guard let url = URL(string: "\(AppSettings.apiURL)/api/tags") else {
-            state = .error("Failed to fetch tags")
-            return
-        }
-        
-        state = .loading
-        
-        let task = URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
-            guard let data = data, error == nil else {
-                print(error as Any)
-                return
-            }
-
-            do {
-                let tags = try JSONDecoder().decode([Tag].self, from: data)
-                DispatchQueue.main.async {
-                    self?.tags = tags
-                    self?.state = .good
+        DataLoader.request(.tags()) { result in
+            switch result {
+            case .success(let data):
+                do {
+                    let tags = try JSONDecoder().decode([Tag].self, from: data)
+                    DispatchQueue.main.async {
+                        self.tags = tags
+                        self.state = .good
+                    }
+                } catch {
+                    print(error)
+                    self.state = .error("Failed to fetch tags")
                 }
-            } catch {
-                print(error)
+            case .failure:
+                self.state = .error("error")
             }
         }
-        
-        task.resume()
     }
     
     func getFilteredTags(query: String) -> [Tag] {

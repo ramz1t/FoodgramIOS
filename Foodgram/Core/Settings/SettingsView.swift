@@ -14,10 +14,12 @@ struct SettingsView: View {
             List {
                 Section("Profile") {
                     NavigationLink {
-                        Text("Change password")
+                        ChangePasswordView()
+                            .navigationTitle("Change password")
                     } label: {
                         Label("Change password", systemImage: "key")
                     }
+                    
                     Button {
                         print("logout")
                     } label: {

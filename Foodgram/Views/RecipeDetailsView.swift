@@ -57,16 +57,16 @@ struct RecipeDetailsView: View {
                     recipe.isFavorited.toggle()
                 } label: {
                     Label("Add to favourites", systemImage: recipe.isFavorited ? "star.fill" : "star")
-                        .symbolRenderingMode(.multicolor)
-                        .foregroundStyle(.yellow)
                 }
+                .tint(.yellow)
+                .animation(.default, value: recipe.isFavorited)
                 moreActionsMenu
             }
         }
     }
     
     var recipeImage: some View {
-        AsyncImage(url: URL(string: "\(AppSettings.apiURL)\(URL(string: recipe.image)?.path ?? "")")) { phase in
+        AsyncImage(apiUrl: recipe.image) { phase in
             switch phase {
             case .empty:
                 Color.gray

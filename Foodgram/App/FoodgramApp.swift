@@ -17,6 +17,6 @@ struct FoodgramApp: App {
     }
     
     init() {
-        
+//        UINavigationBar.appearance().largeTitleTextAttributes = [.font: UIFont(name: "SF-Rounded", size: 30)!]
     }
 }

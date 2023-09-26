@@ -8,5 +8,8 @@
 import Foundation
 
 struct AppSettings {
-    static let apiURL = "http://opns-st-1.aboard.ru:34081"
+    static let serverScheme = "http"
+    static let serverHost = "opns-st-1.aboard.ru"
+    static let apiPrefix = "/api"
+    static let serverPort = 34081
 }

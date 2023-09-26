@@ -23,7 +23,7 @@ struct RecipesView: View {
                     }
                 }
             }
-            .navigationTitle("Recipes")
+            .navigationTitle("Foodgram")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
@@ -58,12 +58,9 @@ struct RecipesView: View {
                 AddRecipeView()
             }
             .sheet(isPresented: $categoryPickerViewIsOpen) {
-                SelectTagView(recipeViewModel: viewModel)
+                SelectTagView()
                     .presentationDetents([.large, .medium])
                     .presentationDragIndicator(.hidden)
-            }
-            .onChange(of: viewModel.selectedTags) { newTag in
-                viewModel.fetch()
             }
             .fullScreenCover(isPresented: $cartViewIsOpen) {
                 Text("cart")

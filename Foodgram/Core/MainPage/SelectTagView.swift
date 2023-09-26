@@ -10,14 +10,14 @@ import SwiftUI
 struct SelectTagView: View {
     @Environment(\.dismiss) var dismiss
     var tagsViewModel = TagsViewModel()
+    var recipesViewModel = RecipesViewModel()
     @State var searchText = ""
-    var recipeViewModel: RecipesViewModel
     
     func toggleSelection(tag: Tag) -> Void {
-        if recipeViewModel.selectedTags.contains(tag) {
-            recipeViewModel.selectedTags = recipeViewModel.selectedTags.filter { $0 != tag }
+        if recipesViewModel.selectedTags.contains(tag) {
+            recipesViewModel.selectedTags = recipesViewModel.selectedTags.filter { $0 != tag }
         } else {
-            recipeViewModel.selectedTags.append(tag)
+            recipesViewModel.selectedTags.append(tag)
         }
     }
     
@@ -31,7 +31,7 @@ struct SelectTagView: View {
                         Label(
                             title: { Text(tag.name) },
                             icon: {
-                                if recipeViewModel.selectedTags.contains(tag) {
+                                if recipesViewModel.selectedTags.contains(tag) {
                                     Image(systemName: "checkmark")
                                         .foregroundColor(Color(hex: tag.color))
                                 } else {
@@ -58,17 +58,15 @@ struct SelectTagView: View {
                     }
                 }
             }
-            
-        }
-        .onAppear {
-            tagsViewModel.fetch()
+            .onAppear {
+                tagsViewModel.fetch()
+            }
         }
     }
 }
 
 struct SelectTagView_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = RecipesViewModel()
-        SelectTagView(recipeViewModel: viewModel)
+        SelectTagView()
     }
 }

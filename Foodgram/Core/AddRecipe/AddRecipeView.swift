@@ -14,6 +14,7 @@ struct AddRecipeView: View {
     @State private var selectedHours = 0
     @State private var selectedMinutes = 5
     @State private var description = ""
+    @State private var selectedTags = [Tag]()
     @State private var imagePickerPresented = false
     @StateObject var viewModel = AddRecipeViewModel()
     var tagsViewModel = TagsViewModel()
@@ -43,8 +44,6 @@ struct AddRecipeView: View {
                             }
                         }
                         .pickerStyle(.wheel)
-                        
-                        
                         Picker("Minutes", selection: $selectedMinutes) {
                             if (selectedHours != 0) {
                                 Text("0 min")
@@ -54,9 +53,9 @@ struct AddRecipeView: View {
                             }
                         }
                         .pickerStyle(.wheel)
-                        
                     }
                 }
+                
                 Section("Image") {
                     Button {
                         imagePickerPresented.toggle()
@@ -77,8 +76,27 @@ struct AddRecipeView: View {
                 
                 Section("Tags") {
                     ForEach(tagsViewModel.tags) { tag in
-                        Label(tag.name, systemImage: "pen")
+                        Button {
+                            if selectedTags.contains(tag) {
+                                selectedTags = selectedTags.filter { $0 != tag }
+                            } else {
+                                selectedTags.append(tag)
+                            }
+                        } label: {
+                            Label(
+                                title: { Text(tag.name) },
+                                icon: {
+                                    if selectedTags.contains(tag) {
+                                        Image(systemName: "checkmark")
+                                            .foregroundColor(Color(hex: tag.color))
+                                    } else {
+                                        Image(systemName: "checkmark")
+                                            .opacity(0)
+                                    }
+                                }
+                            )
                             .foregroundStyle(Color.init(hex: tag.color))
+                        }
                     }
                 }
                 

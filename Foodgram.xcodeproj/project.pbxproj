@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C4E14F02AC376CC00103921 /* DataLoaderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4E14EF2AC376CC00103921 /* DataLoaderError.swift */; };
+		1C4E14F22AC37AF400103921 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4E14F12AC37AF400103921 /* AsyncImage.swift */; };
+		1C59F3092AB8704D002E53A8 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C59F3082AB8704D002E53A8 /* ChangePasswordView.swift */; };
 		1CCA62562AAE181400CE901E /* TGTextButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA62552AAE181400CE901E /* TGTextButtonModifier.swift */; };
 		1CCA81EF2A8D949C00967678 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA81EE2A8D949C00967678 /* ContentView.swift */; };
 		1CCA81F12A8D94AD00967678 /* FoodgramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA81F02A8D94AD00967678 /* FoodgramApp.swift */; };
@@ -38,10 +41,28 @@
 		1CCA82252A8D956800967678 /* TagsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA82242A8D956800967678 /* TagsViewModel.swift */; };
 		1CCA82272A8D956D00967678 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA82262A8D956D00967678 /* User.swift */; };
 		1CCA822F2A8D96A800967678 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CCA822E2A8D96A800967678 /* Assets.xcassets */; };
+		1CF1CCFA2AC23730005A8ECD /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1CCF92AC23730005A8ECD /* Endpoint.swift */; };
+		1CF1CCFC2AC237BD005A8ECD /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1CCFB2AC237BD005A8ECD /* DataLoader.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1C59F34F2AB8760D002E53A8 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1C3A6CF02A8D8FD400D57D2F /* Foodgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foodgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C4E14EF2AC376CC00103921 /* DataLoaderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoaderError.swift; sourceTree = "<group>"; };
+		1C4E14F12AC37AF400103921 /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
+		1C59F3082AB8704D002E53A8 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		1CCA62552AAE181400CE901E /* TGTextButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TGTextButtonModifier.swift; sourceTree = "<group>"; };
 		1CCA81EA2A8D93B500967678 /* Foodgram.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Foodgram.entitlements; sourceTree = "<group>"; };
 		1CCA81ED2A8D944300967678 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -75,6 +96,8 @@
 		1CCA82242A8D956800967678 /* TagsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsViewModel.swift; sourceTree = "<group>"; };
 		1CCA82262A8D956D00967678 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1CCA822E2A8D96A800967678 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1CF1CCF92AC23730005A8ECD /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		1CF1CCFB2AC237BD005A8ECD /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +130,8 @@
 		1CCA81D82A8D938E00967678 /* Foodgram */ = {
 			isa = PBXGroup;
 			children = (
-				1CCA822E2A8D96A800967678 /* Assets.xcassets */,
 				1CCA81E32A8D938E00967678 /* App */,
+				1CCA822E2A8D96A800967678 /* Assets.xcassets */,
 				1CCA81E62A8D938E00967678 /* Components */,
 				1CCA81DB2A8D938E00967678 /* Core */,
 				1CCA81E52A8D938E00967678 /* Extensions */,
@@ -116,6 +139,7 @@
 				1CCA81ED2A8D944300967678 /* Info.plist */,
 				1CCA81E72A8D938E00967678 /* Model */,
 				1CCA81DA2A8D938E00967678 /* Modifiers */,
+				1CF1CCF82AC2371E005A8ECD /* Network */,
 				1CCA81E42A8D938E00967678 /* Preview Content */,
 				1CCA81E92A8D938E00967678 /* Services */,
 				1CCA81D92A8D938E00967678 /* ViewModels */,
@@ -162,6 +186,7 @@
 			children = (
 				1CCA82202A8D955200967678 /* SettingsView.swift */,
 				1CCA81F42A8D94C700967678 /* AboutAppView.swift */,
+				1C59F3082AB8704D002E53A8 /* ChangePasswordView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -241,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				1CCA82002A8D94EF00967678 /* Color.swift */,
+				1C4E14F12AC37AF400103921 /* AsyncImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -280,6 +306,16 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		1CF1CCF82AC2371E005A8ECD /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1CF1CCF92AC23730005A8ECD /* Endpoint.swift */,
+				1CF1CCFB2AC237BD005A8ECD /* DataLoader.swift */,
+				1C4E14EF2AC376CC00103921 /* DataLoaderError.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -290,6 +326,7 @@
 				1C3A6CEC2A8D8FD400D57D2F /* Sources */,
 				1C3A6CED2A8D8FD400D57D2F /* Frameworks */,
 				1C3A6CEE2A8D8FD400D57D2F /* Resources */,
+				1C59F34F2AB8760D002E53A8 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
@@ -358,6 +395,8 @@
 				1CCA821D2A8D954700967678 /* RecipeTagView.swift in Sources */,
 				1CCA81FD2A8D94E100967678 /* AddRecipeViewModel.swift in Sources */,
 				1CCA81F72A8D94CF00967678 /* AddEmailView.swift in Sources */,
+				1CF1CCFA2AC23730005A8ECD /* Endpoint.swift in Sources */,
+				1C59F3092AB8704D002E53A8 /* ChangePasswordView.swift in Sources */,
 				1CCA81FB2A8D94DA00967678 /* AddRecipeView.swift in Sources */,
 				1CCA81F92A8D94D400967678 /* AddNameView.swift in Sources */,
 				1CCA82032A8D94F500967678 /* CompleteSignUpView.swift in Sources */,
@@ -369,6 +408,7 @@
 				1CCA62562AAE181400CE901E /* TGTextButtonModifier.swift in Sources */,
 				1CCA82192A8D953800967678 /* RecipesView.swift in Sources */,
 				1CCA82212A8D955200967678 /* SettingsView.swift in Sources */,
+				1C4E14F22AC37AF400103921 /* AsyncImage.swift in Sources */,
 				1CCA821B2A8D953E00967678 /* RecipesViewModel.swift in Sources */,
 				1CCA81F52A8D94C700967678 /* AboutAppView.swift in Sources */,
 				1CCA82072A8D94FF00967678 /* FavouritesView.swift in Sources */,
@@ -377,8 +417,10 @@
 				1CCA82132A8D952600967678 /* Recipe.swift in Sources */,
 				1CCA820F2A8D951900967678 /* LoginView.swift in Sources */,
 				1CCA821F2A8D954D00967678 /* SelectTagView.swift in Sources */,
+				1CF1CCFC2AC237BD005A8ECD /* DataLoader.swift in Sources */,
 				1CCA82152A8D952B00967678 /* RecipeDetailsView.swift in Sources */,
 				1CCA82252A8D956800967678 /* TagsViewModel.swift in Sources */,
+				1C4E14F02AC376CC00103921 /* DataLoaderError.swift in Sources */,
 				1CCA820B2A8D950C00967678 /* FGTextFieldModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
