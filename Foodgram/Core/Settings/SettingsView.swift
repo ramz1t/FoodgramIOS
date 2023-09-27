@@ -15,16 +15,14 @@ struct SettingsView: View {
                 Section("Profile") {
                     NavigationLink {
                         ChangePasswordView()
-                            .navigationTitle("Change password")
                     } label: {
                         Label("Change password", systemImage: "key")
                     }
                     
-                    Button {
+                    Button(role: .destructive) {
                         print("logout")
                     } label: {
                         Label("Logout", systemImage: "rectangle.portrait.and.arrow.right")
-                            .foregroundColor(.accentColor)
                     }
                 }
                 Section("App") {
@@ -38,6 +36,7 @@ struct SettingsView: View {
                     } label: {
                         Label("Select theme", systemImage: "paintpalette")
                     }
+                    .pickerStyle(.navigationLink)
                     NavigationLink {
                         AboutAppView()
                     } label: {

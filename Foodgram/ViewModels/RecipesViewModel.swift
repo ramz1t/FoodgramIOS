@@ -44,8 +44,8 @@ struct RecipeResponseWrapper: Codable {
         }
     }
     
-    func deleteRecipe(recipeId: Int) {
-        print("recipe \(recipeId) is deleted")
+    func deleteRecipe(_ recipe: Recipe) {
+        print("recipe \(recipe.id) is deleted")
     }
     
     func arrayToQueryString(_ array: [Tag]) -> String {

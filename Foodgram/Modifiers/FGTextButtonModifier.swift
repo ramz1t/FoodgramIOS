@@ -13,7 +13,7 @@ struct FGTextButtonModifier: ViewModifier {
             .foregroundColor(.white)
             .fontWeight(.bold)
             .font(.subheadline)
-            .frame(maxWidth: .infinity, maxHeight: 44)
+            .frame(maxWidth: .infinity, minHeight: 44, maxHeight: 44)
             .background(Color.accentColor)
             .cornerRadius(10)
     }

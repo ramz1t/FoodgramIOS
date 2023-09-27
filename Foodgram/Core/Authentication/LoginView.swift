@@ -39,11 +39,11 @@ struct LoginView: View {
                     
                     HStack {
                         Rectangle()
-                            .frame(maxWidth: .infinity, maxHeight: 0.5)
+                            .frame(maxWidth: .infinity, minHeight: 0.5, maxHeight: 0.5)
                         Text("OR")
                             .font(.footnote)
                         Rectangle()
-                            .frame(maxWidth: .infinity, maxHeight: 0.5)
+                            .frame(maxWidth: .infinity, minHeight: 0.5, maxHeight: 0.5)
                     }
                     .foregroundColor(.gray)
                     
@@ -57,7 +57,7 @@ struct LoginView: View {
                             print(error)
                         }
                     }
-                    .frame(maxWidth: .infinity, maxHeight: 44)
+                    .frame(maxWidth: .infinity, minHeight: 44, maxHeight: 44)
                     .signInWithAppleButtonStyle(.whiteOutline)
                     Spacer()
                 }

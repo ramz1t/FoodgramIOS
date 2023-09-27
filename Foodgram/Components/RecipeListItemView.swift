@@ -116,7 +116,7 @@ struct RecipeListItemContextMenu: View {
             Label("Go to author", systemImage: "person")
         }
         Button(role: .destructive) {
-            RecipesViewModel().deleteRecipe(recipeId: recipe.id)
+            RecipesViewModel().deleteRecipe(recipe)
         } label: {
             Label("Delete", systemImage: "trash")
         }

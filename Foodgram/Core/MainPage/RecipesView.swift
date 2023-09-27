@@ -58,7 +58,7 @@ struct RecipesView: View {
                 AddRecipeView()
             }
             .sheet(isPresented: $categoryPickerViewIsOpen) {
-                SelectTagView()
+                SelectTagView(recipesViewModel: viewModel)
                     .presentationDetents([.large, .medium])
                     .presentationDragIndicator(.hidden)
             }

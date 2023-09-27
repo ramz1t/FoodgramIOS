@@ -10,7 +10,7 @@ import SwiftUI
 struct SelectTagView: View {
     @Environment(\.dismiss) var dismiss
     var tagsViewModel = TagsViewModel()
-    var recipesViewModel = RecipesViewModel()
+    var recipesViewModel: RecipesViewModel
     @State var searchText = ""
     
     func toggleSelection(tag: Tag) -> Void {
@@ -19,44 +19,37 @@ struct SelectTagView: View {
         } else {
             recipesViewModel.selectedTags.append(tag)
         }
+        recipesViewModel.fetch()
     }
     
     var body: some View {
         NavigationStack {
-            List {
-                ForEach(tagsViewModel.getFilteredTags(query: searchText)) { tag in
-                    Button {
-                        toggleSelection(tag: tag)
-                    } label: {
-                        Label(
-                            title: { Text(tag.name) },
-                            icon: {
-                                if recipesViewModel.selectedTags.contains(tag) {
-                                    Image(systemName: "checkmark")
-                                        .foregroundColor(Color(hex: tag.color))
-                                } else {
-                                    Image(systemName: "checkmark")
-                                        .opacity(0)
-                                        
-                                }
+            List(tagsViewModel.getFilteredTags(query: searchText)) { tag in
+                Button {
+                    toggleSelection(tag: tag)
+                } label: {
+                    Label {
+                        Text(tag.name)
+                    } icon: {
+                        Image(systemName: "checkmark")
+                            .foregroundColor(Color(hex: tag.color))
+                            .if(!recipesViewModel.selectedTags.contains(tag)) { view in
+                                view.opacity(0)
                             }
-                        )
-                        .foregroundColor(.primary)
                     }
                 }
-                
+                .foregroundStyle(.primary)
             }
             .searchable(text: $searchText, prompt: "Search")
             .navigationTitle("Select tag")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "xmark.circle")
-                    }
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "xmark.circle")
                 }
+                
             }
             .onAppear {
                 tagsViewModel.fetch()
@@ -65,8 +58,10 @@ struct SelectTagView: View {
     }
 }
 
+
 struct SelectTagView_Previews: PreviewProvider {
     static var previews: some View {
-        SelectTagView()
+        let recipesViewModel = RecipesViewModel()
+        SelectTagView(recipesViewModel: recipesViewModel)
     }
 }

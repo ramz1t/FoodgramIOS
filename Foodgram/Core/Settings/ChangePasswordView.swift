@@ -8,11 +8,26 @@
 import SwiftUI
 
 struct ChangePasswordView: View {
+    @State private var oldPass = ""
+    @State private var newPass = ""
+    
     var body: some View {
         VStack {
-            Text("page")
+            TextField("Old password", text: $oldPass)
+                .modifier(FGTextFieldModifier())
+            TextField("New password", text: $newPass)
+                .modifier(FGTextFieldModifier())
+            Spacer()
         }
+        .navigationTitle("Change password")
         .navigationBarTitleDisplayMode(.inline)
+        .padding()
+        .toolbar {
+            Button("Save") {
+                
+            }
+            .fontWeight(.semibold)
+        }
     }
 }
 

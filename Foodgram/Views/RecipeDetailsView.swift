@@ -11,7 +11,7 @@ struct RecipeDetailsView: View {
     @State var recipe: Recipe
     @State var flag = Tag.MOCK.first!
     @State private var deleteAlertIsShown = false
-    
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
@@ -77,19 +77,6 @@ struct RecipeDetailsView: View {
                     .resizable()
                     .scaledToFit()
                     .cornerRadius(10)
-                    .overlay(alignment: .bottomTrailing) {
-                        Menu {
-                            Button {
-                                
-                            } label: {
-                                Label("Change image", systemImage: "pencil")
-                            }
-                        } label: {
-                            Image(systemName: "ellipsis.circle.fill")
-                                .font(.title)
-                                .padding(5)
-                        }
-                    }
             case .failure(_):
                 HStack {
                     Spacer()
@@ -111,40 +98,25 @@ struct RecipeDetailsView: View {
     @ViewBuilder var moreActionsMenu: some View {
         if true {
             Menu {
-                ControlGroup("Edit recipe information") {
+                Group {
                     Button {
                         
                     } label: {
-                        Label("Name", systemImage: "character.cursor.ibeam")
+                        Label("Edit", systemImage: "pencil")
                     }
-                    Button {
-                        
+                    Button(role: .destructive) {
+                        deleteAlertIsShown = true
                     } label: {
-                        Label("Time", systemImage: "clock.arrow.2.circlepath")
+                        Label("Delete", systemImage: "trash")
                     }
-                    Button {
-                        
-                    } label: {
-                        Label("About", systemImage: "text.alignleft")
-                    }
-                }
-                Picker("Recipe's tags:",  selection: $flag) {
-                    ForEach(Tag.MOCK) { tag in
-                        Label(tag.name, systemImage: "tag")
-                    }
-                }
-                Divider()
-                Button(role: .destructive) {
-                    deleteAlertIsShown = true
-                } label: {
-                    Label("Delete", systemImage: "trash")
                 }
             } label: {
                 Label("More", systemImage: "ellipsis.circle")
             }
             .alert("Delete repipe", isPresented: $deleteAlertIsShown) {
                 Button("Delete", role: .destructive) {
-                    RecipesViewModel().deleteRecipe(recipeId: recipe.id)
+                    RecipesViewModel().deleteRecipe(recipe)
+                    dismiss()
                 }
                 Button("Cancel", role: .cancel) {}
             } message: {
@@ -161,7 +133,16 @@ struct RecipeDetailsView: View {
             ForEach(Array(recipe.ingredients.enumerated()), id: \.element) { index, ingredient in
                 Text("\(index + 1)")
                     .fontWeight(.bold)
-                Text("\(ingredient.name) \(ingredient.amount) \(ingredient.measurementUnit)")
+                    .fontDesign(.rounded)
+                HStack {
+                    Text(ingredient.name)
+                    Spacer()
+                    Text("\(ingredient.amount) \(ingredient.measurementUnit)")
+                        .foregroundStyle(.secondary)
+                        .fontWeight(.semibold)
+                        .fontDesign(.rounded)
+                }
+                
             }
         }
     }

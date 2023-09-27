@@ -10,7 +10,8 @@
 		1C4E14F02AC376CC00103921 /* DataLoaderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4E14EF2AC376CC00103921 /* DataLoaderError.swift */; };
 		1C4E14F22AC37AF400103921 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4E14F12AC37AF400103921 /* AsyncImage.swift */; };
 		1C59F3092AB8704D002E53A8 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C59F3082AB8704D002E53A8 /* ChangePasswordView.swift */; };
-		1CCA62562AAE181400CE901E /* TGTextButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA62552AAE181400CE901E /* TGTextButtonModifier.swift */; };
+		1CB8443C2AC45E62004182A1 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB8443B2AC45E62004182A1 /* View.swift */; };
+		1CCA62562AAE181400CE901E /* FGTextButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA62552AAE181400CE901E /* FGTextButtonModifier.swift */; };
 		1CCA81EF2A8D949C00967678 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA81EE2A8D949C00967678 /* ContentView.swift */; };
 		1CCA81F12A8D94AD00967678 /* FoodgramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA81F02A8D94AD00967678 /* FoodgramApp.swift */; };
 		1CCA81F32A8D94BC00967678 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CCA81F22A8D94BC00967678 /* Preview Assets.xcassets */; };
@@ -63,7 +64,8 @@
 		1C4E14EF2AC376CC00103921 /* DataLoaderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoaderError.swift; sourceTree = "<group>"; };
 		1C4E14F12AC37AF400103921 /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
 		1C59F3082AB8704D002E53A8 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
-		1CCA62552AAE181400CE901E /* TGTextButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TGTextButtonModifier.swift; sourceTree = "<group>"; };
+		1CB8443B2AC45E62004182A1 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		1CCA62552AAE181400CE901E /* FGTextButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FGTextButtonModifier.swift; sourceTree = "<group>"; };
 		1CCA81EA2A8D93B500967678 /* Foodgram.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Foodgram.entitlements; sourceTree = "<group>"; };
 		1CCA81ED2A8D944300967678 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1CCA81EE2A8D949C00967678 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -162,7 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				1CCA820A2A8D950C00967678 /* FGTextFieldModifier.swift */,
-				1CCA62552AAE181400CE901E /* TGTextButtonModifier.swift */,
+				1CCA62552AAE181400CE901E /* FGTextButtonModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -170,13 +172,13 @@
 		1CCA81DB2A8D938E00967678 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				1CCA81DC2A8D938E00967678 /* Settings */,
 				1CCA81DD2A8D938E00967678 /* AddRecipe */,
-				1CCA81DE2A8D938E00967678 /* TabBar */,
+				1CCA81E22A8D938E00967678 /* Authentication */,
 				1CCA81DF2A8D938E00967678 /* Favourites */,
 				1CCA81E02A8D938E00967678 /* MainPage */,
 				1CCA81E12A8D938E00967678 /* Root */,
-				1CCA81E22A8D938E00967678 /* Authentication */,
+				1CCA81DC2A8D938E00967678 /* Settings */,
+				1CCA81DE2A8D938E00967678 /* TabBar */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -267,6 +269,7 @@
 			children = (
 				1CCA82002A8D94EF00967678 /* Color.swift */,
 				1C4E14F12AC37AF400103921 /* AsyncImage.swift */,
+				1CB8443B2AC45E62004182A1 /* View.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -400,12 +403,13 @@
 				1CCA81FB2A8D94DA00967678 /* AddRecipeView.swift in Sources */,
 				1CCA81F92A8D94D400967678 /* AddNameView.swift in Sources */,
 				1CCA82032A8D94F500967678 /* CompleteSignUpView.swift in Sources */,
+				1CB8443C2AC45E62004182A1 /* View.swift in Sources */,
 				1CCA820D2A8D951500967678 /* FoodgramLogoView.swift in Sources */,
 				1CCA81EF2A8D949C00967678 /* ContentView.swift in Sources */,
 				1CCA82112A8D951F00967678 /* MainTabView.swift in Sources */,
 				1CCA82052A8D94FA00967678 /* CreatePasswordView.swift in Sources */,
 				1CCA81FF2A8D94E600967678 /* AppSettings.swift in Sources */,
-				1CCA62562AAE181400CE901E /* TGTextButtonModifier.swift in Sources */,
+				1CCA62562AAE181400CE901E /* FGTextButtonModifier.swift in Sources */,
 				1CCA82192A8D953800967678 /* RecipesView.swift in Sources */,
 				1CCA82212A8D955200967678 /* SettingsView.swift in Sources */,
 				1C4E14F22AC37AF400103921 /* AsyncImage.swift in Sources */,
