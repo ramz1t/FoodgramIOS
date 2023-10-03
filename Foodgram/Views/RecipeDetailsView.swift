@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CachedAsyncImage
 
 struct RecipeDetailsView: View {
     @State var recipe: Recipe
@@ -71,7 +72,7 @@ struct RecipeDetailsView: View {
     }
     
     var recipeImage: some View {
-        AsyncImage(apiUrl: recipe.image) { phase in
+        CachedAsyncImage(apiUrl: recipe.image) { phase in
             switch phase {
             case .empty:
                 Color.gray

@@ -7,8 +7,9 @@
 
 import Foundation
 import SwiftUI
+import CachedAsyncImage
 
-extension AsyncImage {
+extension CachedAsyncImage {
     init(apiUrl: String, @ViewBuilder content: @escaping (AsyncImagePhase) -> Content) {
         var urlComponents = URLComponents(string: apiUrl)
         urlComponents?.scheme = AppSettings.serverScheme

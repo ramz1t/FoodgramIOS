@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CachedAsyncImage
 
 struct RecipeListItemView: View {
     
@@ -17,7 +18,7 @@ struct RecipeListItemView: View {
             RecipeDetailsView(recipe: recipe)
         } label: {
             HStack {
-                AsyncImage(apiUrl: recipe.image) { phase in
+                CachedAsyncImage(apiUrl: recipe.image) { phase in
                     switch phase {
                     case .empty:
                         Rectangle()
