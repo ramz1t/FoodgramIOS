@@ -19,16 +19,21 @@ struct RecipeDetailsView: View {
                 Text(recipe.name)
                     .font(.title)
                     .fontWeight(.bold)
-                HStack(spacing: 10) {
-                    ForEach(recipe.tags) { tag in
-                        RecipeTagView(tag: tag)
-                    }
-                }
+                RecipeTagsView(tags: recipe.tags)
                 Divider()
                     .padding(.vertical, 10)
                 VStack(alignment: .leading, spacing: 5) {
                     Label("\(recipe.cookingTime) mins", systemImage: "clock")
-                    Label("\(recipe.author.firstName) \(recipe.author.lastName)", systemImage: "person")
+                    NavigationLink {
+                        UserView(user: recipe.author)
+                    } label: {
+                        HStack {
+                            Image(systemName: "person")
+                            Text("\(recipe.author.firstName) \(recipe.author.lastName)")
+                            Image(systemName: "chevron.right")
+                        }
+                    }
+                    .foregroundStyle(.primary)
                 }
                 .font(.footnote)
                 .fontWeight(.semibold)

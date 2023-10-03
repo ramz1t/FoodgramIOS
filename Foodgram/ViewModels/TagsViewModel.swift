@@ -8,7 +8,7 @@
 import Foundation
 import Observation
 
-@Observable class TagsViewModel {
+class TagsViewModel: Observable {
     var tags: [Tag] = []
     var state: FetcherState = .good
     

@@ -52,19 +52,15 @@ struct RecipeListItemView: View {
                     HStack(spacing: 3) {
                         Image(systemName: "clock")
                             .renderingMode(.template)
-                            .foregroundColor(.secondary)
+                            .foregroundColor(Color(.secondaryLabel))
                             .font(.caption)
-                        
                         Text("\(recipe.cookingTime) mins")
-                            .foregroundColor(.secondary)
+                            .foregroundColor(Color(.secondaryLabel))
                             .font(.caption)
                     }
                 }
                 .padding(.leading, 5)
-                Spacer()
             }
-            .padding(.horizontal)
-            .padding(.vertical, 5)
         }
         .foregroundColor(.primary)
         .contextMenu {
@@ -86,11 +82,7 @@ struct RecipeListItemPreview: View {
             Label("\(recipe.author.firstName) \(recipe.author.lastName)", systemImage: "person")
                 .font(.footnote)
                 .fontWeight(.semibold)
-            HStack {
-                ForEach(recipe.tags) { tag in
-                    RecipeTagView(tag: tag)
-                }
-            }
+            RecipeTagsView(tags: recipe.tags)
         }
         .padding()
     }
@@ -111,7 +103,7 @@ struct RecipeListItemContextMenu: View {
             Label(recipe.isFavorited ? "Remove from favourites" : "Add to favourites", systemImage: recipe.isFavorited ? "star.fill" : "star")
         }
         NavigationLink {
-            Text(recipe.author.firstName)
+            UserView(user: recipe.author)
         } label: {
             Label("Go to author", systemImage: "person")
         }

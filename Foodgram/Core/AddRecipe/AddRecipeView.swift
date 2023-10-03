@@ -127,7 +127,7 @@ struct AddRecipeView: View {
                         dismiss()
                     } label: {
                         Text("Create")
-                            .fontWeight(.bold)
+                            .bold()
                     }
                 }
             }

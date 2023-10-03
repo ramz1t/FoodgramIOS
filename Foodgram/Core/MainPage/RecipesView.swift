@@ -16,13 +16,7 @@ struct RecipesView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                LazyVStack {
-                    ForEach(viewModel.recipes) { recipe in
-                        RecipeListItemView(recipe: recipe)
-                    }
-                }
-            }
+            RecipesList(recipesViewModel: viewModel)
             .navigationTitle("Foodgram")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -63,11 +57,8 @@ struct RecipesView: View {
                     .presentationDragIndicator(.hidden)
             }
             .fullScreenCover(isPresented: $cartViewIsOpen) {
-                Text("cart")
+                CartView()
             }
-        }
-        .onAppear {
-            viewModel.fetch()
         }
     }
 }

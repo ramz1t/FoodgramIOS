@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+enum Favourites: String, Equatable, CaseIterable {
+    case recipes = "Recipes"
+    case users = "Users"
+}
+
 struct FavouritesView: View {
     
     init() {
@@ -16,33 +21,37 @@ struct FavouritesView: View {
     
     @State private var searchText = ""
     var viewModel = RecipesViewModel()
-    @State private var selectedOption = 0
+    @State private var selectedOption: Favourites = .recipes
     
-    private func getFilteredResults() -> [Recipe] {
-        if searchText == "" {
-            return viewModel.recipes
-        }
-        let filteredResults = viewModel.recipes.filter { $0.name.contains(searchText) }
-        return filteredResults
-    }
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                Picker("select", selection: $selectedOption) {
-                    Text("Recipes")
-                        .tag(0)
-                    Text("Users")
-                        .tag(1)
+            List {
+                Section {
+                    Picker("Select favourites option", selection: $selectedOption) {
+                        ForEach(Favourites.allCases, id: \.self) { Text($0.rawValue) }
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
                 }
-                .pickerStyle(SegmentedPickerStyle())
-                .padding(.horizontal)
-                LazyVStack {
-                    ForEach(getFilteredResults(), id: \.id) { recipe in
-                        RecipeListItemView(recipe: recipe)
+                .listRowBackground(Color.clear)
+                .listRowSeparator(.hidden)
+                
+                if selectedOption == .recipes {
+                    ForEach(viewModel.recipes, id: \.id) { recipe in
+                        FavouriteRecipeListView(recipe: recipe)
+                    }
+                } else {
+                    ForEach(1..<20) { _ in
+                        NavigationLink {
+                            UserView(user: User.MOCK)
+                        } label: {
+                            UserListItemView(user: User.MOCK)
+                        }
                     }
                 }
+                
             }
+            .listStyle(.inset)
             .searchable(text: $searchText,
                         placement: .navigationBarDrawer(displayMode: .always),
                         prompt: "Search")
@@ -52,6 +61,50 @@ struct FavouritesView: View {
             }
         }
         
+    }
+}
+
+struct UserListItemView: View {
+    let user: User
+    
+    var body: some View {
+        VStack {
+            Text("\(user.firstName) \(user.lastName)")
+                .fontWeight(.semibold)
+            
+            VStack(alignment: .leading) {
+                Text("• Mashed potatos")
+                Text("• Dumplings")
+                Text("• Chicken wings")
+            }
+            .font(.footnote)
+            .foregroundStyle(.secondary)
+        }
+    }
+}
+
+struct FavouriteRecipeListView: View {
+    let recipe: Recipe
+    
+    var body: some View {
+        NavigationLink {
+            RecipeDetailsView(recipe: recipe)
+        } label: {
+            VStack(alignment: .leading) {
+                HStack {
+                    Text(recipe.name)
+                        .fontWeight(.semibold)
+                    Text("• \(recipe.cookingTime) mins")
+                        .foregroundStyle(.secondary)
+                }
+                RecipeTagsView(tags: recipe.tags)
+            }
+        }
+        .contextMenu {
+            RecipeListItemContextMenu(recipe: recipe)
+        } preview: {
+            RecipeListItemPreview(recipe: recipe)
+        }
     }
 }
 
